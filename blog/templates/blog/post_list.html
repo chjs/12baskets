@@ -1,21 +1,23 @@
-<!DOCTYPE html>
-<html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <title>열두광주리교회</title>
-    </head>
-    <body>
-        <h1>교회 활동 {% if category %}<sub>{{ category }}</sub>{% endif %}</h1>
-        {% if post_list.exists %}
-            {% for post in post_list %}
-                <hr>
-                <a href="{{ post.get_absolute_url }}"><h2>{{ post.title }}</h2></a>
-                {% if post.photos.exists %}
-                    <img src="{{ post.photos.first.image.url }}" alt="Photo">
-                {% endif %}
-                <p>{{ post.created_at | date:"Y년 m월 d일" }}</p>
-            {% endfor %}
-        {% else %}
+{% extends 'blog/base.html' %}
+
+{% block head_title %}
+교회활동 - 열두광주리교회
+{% endblock %}
+
+{% block content %}
+
+<h1>교회활동 {% if category %}<sub>{{ category }}</sub>{% endif %}</h1>
+{% if post_list.exists %}
+    {% for post in post_list %}
+        <hr>
+        <a href="{{ post.get_absolute_url }}"><h2>{{ post.title }}</h2></a>
+        {% if post.photos.exists %}
+            <img src="{{ post.photos.first.image.url }}" alt="Photo">
         {% endif %}
-    </body>
-</html>
+        <p>{{ post.created_at | date:"Y년 m월 d일" }}</p>
+    {% endfor %}
+{% else %}
+<p>There are no posts yet.</p>
+{% endif %}
+
+{% endblock %}
