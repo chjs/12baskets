@@ -12,3 +12,12 @@ body {
     height: 250px;       /* 원하는 고정 높이 */
     object-fit: cover;   /* 비율 유지 및 초과 부분 크롭 */
 }
+
+@media (max-width: 767px) {
+    .widget {
+        order: -1; /* 순서를 가장 위로 이동 */
+    }
+    .gallery {
+        order: 0; /* 기본 순서 유지 */
+    }
+}

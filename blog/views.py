@@ -15,8 +15,9 @@ class PostList(ListView):
 def category_page(request, slug):
     category = Category.objects.get(slug=slug)
     post_list = Post.objects.filter(category=category).order_by('-pk')
+    category_list = Category.objects.all()
 
-    return render(request, 'blog/post_list.html', {'category': category, 'post_list': post_list})
+    return render(request, 'blog/post_list.html', {'category': category, 'categories': category_list, 'post_list': post_list})
 
 class PostDetail(DetailView):
     model = Post
