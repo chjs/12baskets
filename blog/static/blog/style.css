@@ -1,3 +1,14 @@
 body {
     padding-top: 70px; /* Spacing equal to the navbar height is required. */
 }
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 부드러운 그림자 */
+    transition: box-shadow 0.3s ease-in-out; /* 부드러운 애니메이션 */
+}
+
+.card-img-top {
+    width: 100%;         /* 가로 크기 고정 */
+    height: 250px;       /* 원하는 고정 높이 */
+    object-fit: cover;   /* 비율 유지 및 초과 부분 크롭 */
+}
