@@ -12,7 +12,7 @@
         <hr>
         <a href="{{ post.get_absolute_url }}"><h2>{{ post.title }}</h2></a>
         {% if post.photos.exists %}
-            <img src="{{ post.photos.first.image.url }}" alt="Photo">
+            <img src="{{ post.photos.first.image.url }}" alt="Photo" class="img-fluid">
         {% endif %}
         <p>{{ post.created_at | date:"Y년 m월 d일" }}</p>
     {% endfor %}

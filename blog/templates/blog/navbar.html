@@ -12,19 +12,19 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav me-3">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">교회소개</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="/">교회소개</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/services/">예배안내</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'service' %}active{% endif %}" href="/services/">예배안내</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/message/">온라인설교</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'message' %}active{% endif %}" href="/message/">온라인설교</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/blog/">교회활동</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'blog' %}active{% endif %}" href="/blog/">교회활동</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/map/">오시는길</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'map' %}active{% endif %}" href="/map/">오시는길</a>
                 </li>
             </ul>
         </div>
