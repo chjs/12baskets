@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <title>열두광주리교회</title>
-    </head>
-    <body>
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.created_at | date:"Y년 m월 d일" }}</p>
-        {% if post.photos.exists %}
-            {% for photo in post.photos.all %}
-                <p><img src="{{ photo.image.url }}" alt="Photo"></p>
-            {% endfor %}
-        {% endif %}
-        <p>{{ post.content | linebreaks }}</p>
-    </body>
-</html>
+{% extends 'blog/base.html' %}
+
+{% block head_title %}
+{{ post.title }} - 열두광주리교회
+{% endblock %}
+
+{% block content %}
+
+<h2>{{ post.title }}</h2>
+<p>{{ post.created_at | date:"Y년 m월 d일" }}</p>
+{% if post.photos.exists %}
+    {% for photo in post.photos.all %}
+        <p><img src="{{ photo.image.url }}" alt="Photo" class="img-fluid"></p>
+    {% endfor %}
+{% endif %}
+<p>{{ post.content | linebreaks }}</p>
+
+{% endblock %}
