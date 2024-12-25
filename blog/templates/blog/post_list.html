@@ -6,13 +6,20 @@
 
 {% block content %}
 
-<h1>교회활동 {% if category %}<sub>{{ category }}</sub>{% endif %}</h1>
+<h3>
+{% if category %}
+{{ category }}
+{% else %}
+전체
+{% endif %}
+</h3>
+
 <div class="row">
     <div class="col-md-9 gallery">
         {% if post_list.exists %}
             <div class="row">
                 {% for post in post_list %}
-                    <div class="col-md-4 mb-4">
+                    <div class="col-xl-4 col-lg-6 col-md-12 mb-4">
                         <a href="{{ post.get_absolute_url }}" class="text-decoration-none text-dark">
                             <div class="card rounded">
                                 {% if post.photos.exists %}
@@ -52,9 +59,12 @@
         <div class="card-body">
             <div class="row">
                 <ul class="list-unstyled mb-0">
+                    <li>
+                        <a href="/blog/" class="custom-href">전체</a>
+                    </li>
                     {% for category in categories %}
                         <li>
-                            <a href="{{ category.get_absolute_url }}">{{ category }}</a>
+                            <a href="{{ category.get_absolute_url }}" class="custom-href">{{ category }}</a>
                         </li>
                     {% endfor %}
                 </ul>
@@ -63,15 +73,9 @@
 
         <h5 class="card-header">태그</h5>
         <div class="card-body">
-            <div class="row">
-                <ul class="list-unstyled mb-0">
                     {% for tag in tags %}
-                        <li>
-                            <a href="{{ tag.get_absolute_url }}">{{ tag }}</a>
-                        </li>
+                            <a href="{{ tag.get_absolute_url }}" class="badge bg-secondary text-decoration-none">#{{ tag }}</a>
                     {% endfor %}
-                </ul>
-            </div>
         </div>
     </div>
 </div>

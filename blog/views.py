@@ -10,14 +10,14 @@ class PostList(ListView):
         context = super(PostList, self).get_context_data()
         context['categories'] = Category.objects.all()
         context['no_category_post_count'] = Post.objects.filter(category=None).count()
-        context['tags'] = Tag.objects.all()
+        context['tags'] = Tag.objects.all().order_by('name')
         return context
 
 def category_page(request, slug):
     category = Category.objects.get(slug=slug)
     post_list = Post.objects.filter(category=category).order_by('-pk')
     category_list = Category.objects.all()
-    tag_list = Tag.objects.all()
+    tag_list = Tag.objects.all().order_by('name')
 
     return render(
         request,
@@ -34,7 +34,7 @@ def tag_page(request, slug):
     tag = Tag.objects.get(slug=slug)
     post_list = tag.post_set.all()
     category_list = Category.objects.all()
-    tag_list = Tag.objects.all()
+    tag_list = Tag.objects.all().order_by('name')
 
     return render(
         request,
