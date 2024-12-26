@@ -5,12 +5,18 @@ from .models import Post, Category, Tag
 class PostList(ListView):
     model = Post
     ordering = '-pk'
+    paginate_by = 9
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(PostList, self).get_context_data()
         context['categories'] = Category.objects.all()
         context['no_category_post_count'] = Post.objects.filter(category=None).count()
         context['tags'] = Tag.objects.all().order_by('name')
+
+        page = context['page_obj']
+        paginator = page.paginator
+        pagelist = paginator.get_elided_page_range(page.number, on_each_side=3, on_ends=0)
+        context['pagelist'] = pagelist
         return context
 
 def category_page(request, slug):
