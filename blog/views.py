@@ -15,7 +15,7 @@ class PostList(ListView):
 
         page = context['page_obj']
         paginator = page.paginator
-        pagelist = paginator.get_elided_page_range(page.number, on_each_side=3, on_ends=0)
+        pagelist = paginator.get_elided_page_range(page.number, on_each_side=2, on_ends=0)
         context['pagelist'] = pagelist
         return context
 
