@@ -1,5 +1,5 @@
 body {
-    padding-top: 70px; /* Spacing equal to the navbar height is required. */
+    padding-top: 90px; /* Spacing equal to the navbar height is required. */
 }
 
 .custom-href {
@@ -29,4 +29,8 @@ body {
     .gallery {
         order: 0; /* 기본 순서 유지 */
     }
+}
+
+.nav-link {
+    font-size: 1.2rem; /* 메뉴 링크 폰트 크기 */
 }
