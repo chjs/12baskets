@@ -1,5 +1,5 @@
 body {
-    padding-top: 90px; /* Spacing equal to the navbar height is required. */
+    padding-top: 75px; /* Spacing equal to the navbar height is required. */
 }
 
 .custom-href {
@@ -33,4 +33,9 @@ body {
 
 .nav-link {
     font-size: 1.2rem; /* 메뉴 링크 폰트 크기 */
+}
+
+.carousel-inner img {
+    object-fit: cover;     /* 이미지 비율 유지하며 크롭 */
+    width: 100%;           /* 가로 크기 맞춤 */
 }
