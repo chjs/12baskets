@@ -18,13 +18,10 @@
                     <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="/">교회소개</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if request.resolver_match.url_name == 'videos' %}active{% endif %}" href="/videos/">영상</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'pastor' %}active{% endif %}" href="/pastor/">담임목사</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {% if request.resolver_match.url_name == 'blog' %}active{% endif %}" href="/blog/">교회활동</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if request.resolver_match.url_name == 'people' %}active{% endif %}" href="/people/">섬기는분들</a>
                 </li>
             </ul>
         </div>
