@@ -1,5 +1,4 @@
 <h1 class="text-center mt-5 mb-4">교회 활동</h1>
-<div class="row">
     {% if recent_blog_posts.exists %}
         <div class="row">
             {% for post in recent_blog_posts %}
@@ -26,4 +25,3 @@
     {% else %}
         <p>There are no posts yet.</p>
     {% endif %}
-</div>
