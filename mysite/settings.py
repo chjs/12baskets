@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5',
     'blog',
+    'single_pages',
 ]
 
 MIDDLEWARE = [
@@ -119,6 +120,7 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
+#STATIC_ROOT = BASE_DIR / "staticfiles"  # `collectstatic` 명령어로 모은 파일 저장소
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
