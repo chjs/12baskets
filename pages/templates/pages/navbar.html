@@ -1,0 +1,29 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <!-- Brand (왼쪽 정렬) -->
+        <a class="navbar-brand" href="/">
+            <img src="{% static 'pages/images/12baskets_logo.svg' %}" width="230" alt="Logo" class="d-inline-block align-text-top">
+        </a>
+
+        <!-- Toggler (모바일 메뉴용) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Items (오른쪽 정렬) -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav me-3">
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="/">교회소개</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'pastor' %}active{% endif %}" href="/pastor/">담임목사</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'blog' %}active{% endif %}" href="/blog/">교회활동</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
