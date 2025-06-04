@@ -2,29 +2,69 @@
 
 ## Getting Started
 
+### Install the necessary packages
+```bash
+sudo apt update
+sudo apt install -y git python3 python3-venv python3-pip
+sudo apt install -y postgresql postgresql-contrib libpq-dev
+sudo apt install -y nginx
+```
+
+### Create a PostgreSQL Database & User
+```bash
+sudo -i -u postgres
+psql
+```
+
+```
+postgres=# CREATE DATABASE "12baskets_db";
+postgres=# CREATE USER "12baskets_user" WITH PASSWORD 'your_strong_password_here';
+postgres=# GRANT ALL PRIVILEGES ON DATABASE "12baskets_db" TO "12baskets_user";
+```
+
 ### Create a virtual environment 
 To create a virtual environment, run the following command in the terminal:
 ```bash
+git clone https://github.com/chjs/12baskets.git
 cd 12baskets/
 python3 -m venv venv
 source venv/bin/activate
 ```
 To install the packages listed in the file, use the following command:
 ```bash
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
 ### Create a file to manage environment variables
 Write the environment variables required for running this homepage in the ```.env``` file.
+```ini
+# 1. SECRET_KEY for Django
+SECRET_KEY=your_django_secret_key_here
+
+# 2. Only if you want DEBUG off in production
+DEBUG=False            # or True while debugging; be careful to switch to False before going live
+
+# 3. Database settings (PostgreSQL)
+DB_NAME=12baskets_db
+DB_USER=12baskets_user
+DB_PASSWORD=your_strong_password_here
+DB_HOST=localhost
+DB_PORT=5432
+
+# 4. Kakao JS API Key for maps (if your pages use Kakao map)
+KAKAO_JS_API_KEY=your_actual_kakao_key
+
+# 5. Church coordinates for map view
+LAT=37.283977
+LNG=127.044483
 ```
-DB_NAME=name
-DB_USER=id
-DB_PASSWORD=password
-DB_HOST=host
-DB_PORT=port
-KAKAO_JS_API_KEY=key
-LAT=latitude
-LNG=longitude
+#### Generate a strong ```SECRET_KEY```: You can quickly generate one locally with Python:
+```bash
+python3 - <<EOF
+import secrets
+print(secrets.token_urlsafe(50))
+EOF
 ```
 
 ### Apply migrations in Django before running the server
