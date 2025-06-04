@@ -14,7 +14,7 @@ To install the packages listed in the file, use the following command:
 pip install -r requirements.txt
 ```
 
-### Environment Variables
+### Create a file to manage environment variables
 Write the environment variables required for running this homepage in the ```.env``` file.
 ```
 DB_NAME=name
