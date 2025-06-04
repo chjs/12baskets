@@ -2,8 +2,6 @@
 
 body {
     font-family: "Nanum Gothic", sans-serif;
-    font-weight: 400;
-    font-style: normal;
 }
 
 h1 {
@@ -12,7 +10,6 @@ h1 {
 
 .navbar {
     font-size: 1.2rem;
-    font-weight: 700;
 }
 
 .custom-sub {
@@ -24,4 +21,24 @@ h1 {
 .carousel-fullwidth {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
+}
+
+.custom-href {
+    color: black;
+    text-decoration: none;
+}
+
+.custom-href:hover {
+    color: #007bff; /* Hover 시 색상을 변경 */
+}
+
+.custom-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 부드러운 그림자 */
+    transition: box-shadow 0.3s ease-in-out; /* 부드러운 애니메이션 */
+}
+
+.card-img-top {
+    width: 100%;         /* 가로 크기 고정 */
+    height: 200px;       /* 원하는 고정 높이 */
+    object-fit: cover;   /* 비율 유지 및 초과 부분 크롭 */
 }

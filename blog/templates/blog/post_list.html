@@ -1,0 +1,92 @@
+{% extends 'pages/base.html' %}
+
+{% block head_title %}
+교회활동 - 열두광주리교회
+{% endblock %}
+
+{% block content %}
+
+<h2 class="mt-5 mb-4">
+    <i class="bi bi-camera-fill"></i>
+    {% if category %}
+        {{ category }}
+    {% else %}
+        전체
+    {% endif %}
+</h2>
+
+<div class="row">
+    <div class="col-md-9 gallery">
+        {% if post_list.exists %}
+            <div class="row">
+                {% for post in post_list %}
+                    <div class="col-xl-4 col-lg-6 col-md-12 mb-4">
+                        <a href="{{ post.get_absolute_url }}" class="text-decoration-none text-dark">
+                            <div class="card rounded custom-card">
+                                {% if post.photos.exists %}
+                                    <img src="{{ post.photos.first.image.url }}" alt="Photo" class="card-img-top img-fluid">
+                                {% endif %}
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ post.title }}</h5>
+                                    <p>{{ post.created_at | date:"Y년 m월 d일" }}</p>
+                                    {% if post.tags.exists %}
+                                        {% for tag in post.tags.iterator %}
+                                            <span class="badge bg-secondary"><i class="bi bi-tag-fill"></i>{{ tag }}</span>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>There are no posts yet.</p>
+        {% endif %}
+
+        {% include 'blog/pagination.html' %}
+    </div>
+
+    <div class="col-md-3 mb-4 widget">
+        <div class="card">
+            <h5 class="card-header"><i class="bi bi-search"></i> 검색</h5>
+            <div class="card-body">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="">
+                    <span class="input-group-append">
+                        <button class="btn btn-secondary" type="button">검색</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <h5 class="card-header"><i class="bi bi-folder-fill"></i> 분류</h5>
+            <div class="card-body">
+                <div class="row">
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="/blog/" class="custom-href">전체</a>
+                        </li>
+                        {% for category in categories %}
+                            <li>
+                                <a href="{{ category.get_absolute_url }}" class="custom-href">{{ category }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <h5 class="card-header"><i class="bi bi-tag-fill"></i> 태그</h5>
+            <div class="card-body">
+                {% for tag in tags %}
+                    <a href="{{ tag.get_absolute_url }}" class="badge bg-secondary text-decoration-none"><i class="bi bi-tag-fill"></i>{{ tag }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

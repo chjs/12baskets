@@ -1,0 +1,23 @@
+{% extends 'pages/base.html' %}
+
+{% block head_title %}
+{{ post.title }} - 열두광주리교회
+{% endblock %}
+
+{% block content %}
+
+<h2 class="mt-4">{{ post.title }}</h2>
+<p>{{ post.created_at | date:"Y년 m월 d일" }}</p>
+{% if post.photos.exists %}
+    {% for photo in post.photos.all %}
+        <p class="mt-4 text-center"><img src="{{ photo.image.url }}" alt="Photo" class="img-fluid"></p>
+    {% endfor %}
+{% endif %}
+
+<p class="mt-5">{{ post.content | linebreaks }}</p>
+
+<div class="mt-5 text-center">
+    <a href="{{ request.META.HTTP_REFERER|default:'/blog/' }}" class="btn btn-secondary"><i class="bi bi-arrow-90deg-up"></i> 목록으로 돌아가기</a>
+</div>
+
+{% endblock %}
