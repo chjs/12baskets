@@ -56,8 +56,8 @@ DB_PORT=5432
 KAKAO_JS_API_KEY=your_actual_kakao_key
 
 # 5. Church coordinates for map view
-LAT=37.283977
-LNG=127.044483
+LAT=37.299142
+LNG=126.979092
 ```
 #### Generate a strong ```SECRET_KEY```: You can quickly generate one locally with Python:
 ```bash
