@@ -193,4 +193,8 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+# Vim temporary files
+*.swp
+
+# Media files
 _media
