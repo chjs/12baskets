@@ -46,8 +46,8 @@ SECRET_KEY=your_django_secret_key_here
 DEBUG=False            # or True while debugging; be careful to switch to False before going live
 
 # 3. Database settings (PostgreSQL)
-DB_NAME=12baskets_db
-DB_USER=12baskets_user
+DB_NAME=your_dbname
+DB_USER=your_username
 DB_PASSWORD=your_strong_password_here
 DB_HOST=localhost
 DB_PORT=5432
