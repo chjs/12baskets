@@ -37,27 +37,26 @@ pip install -r requirements.txt
 ```
 
 ### Create a file to manage environment variables
-Write the environment variables required for running this homepage in the ```.env``` file.
+Write the environment variables required for running this homepage in the ```.env.dev``` file.
 ```ini
-# 1. SECRET_KEY for Django
-SECRET_KEY=your_django_secret_key_here
+DJANGO_DEBUG = 1
+DJANGO_SECRET_KEY = 'django-insecure-9dr0onzddu5v%j1q%=(odj^+16mje^-88c46%gv9lin1@j99te'
+DJANGO_ALLOWED_HOSTS = localhost 127.0.0.1 [::1]
 
-# 2. Only if you want DEBUG off in production
-DEBUG=False            # or True while debugging; be careful to switch to False before going live
+# Database configuration
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=mydb
+SQL_USER=myuser
+SQL_PASSWORD=1q@W3e4r
+SQL_HOST=db
+SQL_PORT=5432
 
-# 3. Database settings (PostgreSQL)
-DB_NAME=your_dbname
-DB_USER=your_username
-DB_PASSWORD=your_strong_password_here
-DB_HOST=localhost
-DB_PORT=5432
+# Kakao JS API Key for maps (if your pages use Kakao map)
+KAKAO_JS_API_KEY=e7686de2f5aeb195e2d5b89f2ba34ce7
 
-# 4. Kakao JS API Key for maps (if your pages use Kakao map)
-KAKAO_JS_API_KEY=your_actual_kakao_key
-
-# 5. Church coordinates for map view
-LAT=37.299142
-LNG=126.979092
+# Coordinates for map view
+MAP_LAT=37.299142
+MAP_LNG=126.979092
 ```
 #### Generate a strong ```SECRET_KEY```: You can quickly generate one locally with Python:
 ```bash
