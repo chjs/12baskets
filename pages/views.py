@@ -16,3 +16,14 @@ def index(request):
             'recent_blog_posts': recent_blog_posts,
         }
     )
+
+def pastor(request):
+    recent_blog_posts = Post.objects.filter(tags__name="담임목사").order_by('-pk')[:4]
+
+    return render(
+        request,
+        'pages/pastor.html',
+        {
+            'recent_blog_posts': recent_blog_posts,
+        }
+    )

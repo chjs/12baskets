@@ -25,7 +25,7 @@ h1 {
 
 .custom-href {
     color: black;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .custom-href:hover {
