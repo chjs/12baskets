@@ -40,19 +40,19 @@ pip install -r requirements.txt
 Write the environment variables required for running this homepage in the ```.env.dev``` file.
 ```ini
 DJANGO_DEBUG = 1
-DJANGO_SECRET_KEY = 'django-insecure-9dr0onzddu5v%j1q%=(odj^+16mje^-88c46%gv9lin1@j99te'
+DJANGO_SECRET_KEY = 'django_secret_key'
 DJANGO_ALLOWED_HOSTS = localhost 127.0.0.1 [::1]
 
 # Database configuration
 SQL_ENGINE=django.db.backends.postgresql
-SQL_DATABASE=mydb
-SQL_USER=myuser
-SQL_PASSWORD=1q@W3e4r
+SQL_DATABASE=dbname
+SQL_USER=username
+SQL_PASSWORD=password
 SQL_HOST=db
 SQL_PORT=5432
 
 # Kakao JS API Key for maps (if your pages use Kakao map)
-KAKAO_JS_API_KEY=e7686de2f5aeb195e2d5b89f2ba34ce7
+KAKAO_JS_API_KEY=kakao_js_api_key
 
 # Coordinates for map view
 MAP_LAT=37.299142
