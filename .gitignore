@@ -200,5 +200,8 @@ cython_debug/
 # Media files
 _media
 
+# Static files
+_static
+
 # macOS Finder files
 .DS_Store
